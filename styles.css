@@ -1,0 +1,309 @@
+:root {
+  --ff-cinzel: "Cinzel Decorative", cursive;
+  --ff-titan: "Orbitron", sans-serif;
+  --ff-patrickHand: "Solitreo", cursive;
+  --color-red: #eb5353;
+  --color-yellow: #f9d923;
+  --color-green: #36ae7c;
+  --color-darkgreen: #167c51;
+  --color-blue: #0fb6e4;
+}
+/* Josh Comeau's css reset */
+/* 1. Use a more-intuitive box-sizing model.*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* 2. Remove default margin*/
+* {
+  margin: 0;
+}
+/*  3. Allow percentage-based heights in the application */
+html,
+body {
+  height: 100%;
+}
+/*  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*  6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*  7. Remove built-in form typography styles */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*  8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*  9. Create a root stacking context */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* General Styling */
+
+body {
+  font-family: var(--ff-cinzel);
+  height: 100vh;
+  background-color: var(--color-darkgreen);
+}
+
+main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-darkgreen);
+  text-align: center;
+}
+
+.container {
+  max-width: 900px;
+  padding-top: 2%;
+}
+
+h1 {
+  font-family: var(--ff-cinzel);
+  font-weight: 700;
+  color: var(--color-red);
+  text-shadow: 1px 3px 2px black;
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 0.5em;
+}
+
+.btn {
+  margin-bottom: 1em;
+  box-shadow: 1px 13px 25px -1px #0b3c27;
+  border-radius: 0.125em;
+  background: linear-gradient(to bottom, #36a37c 5%, #72b352 100%);
+  background-color: #36a37c;
+  display: block;
+  cursor: pointer;
+  color: var(--color-yellow);
+  letter-spacing: 0.25em;
+  font-family: var(--ff-titan);
+  font-weight: 400;
+  font-size: 2rem;
+  padding: 6px 12px;
+  text-decoration: none;
+  text-shadow: 1px 3px 2px #5b8a3c;
+}
+
+.btn:hover {
+  background: linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+  background-color: #72b352;
+}
+.btn:active {
+  position: relative;
+  top: 1px;
+}
+
+.dice-group {
+  border-radius: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.dice__player {
+  color: white;
+  font-family: var(--ff-cinzel);
+  font-size: 2.125rem;
+  font-weight: 700;
+  text-shadow: 1px 3px 2px black;
+}
+
+.dice__face1,
+.dice__face2 {
+  display: grid;
+  grid-template-areas:
+    "a . c"
+    "e g f"
+    "d . b";
+
+  margin: 16px;
+  padding: 10px;
+  width: 12em;
+  height: 12em;
+
+  background-color: #e7e7e7;
+  box-shadow: inset 0 0.5em white, inset 0 -0.5em #bbb, inset 0.5em 0 #d7d7d7,
+    inset -0.5em 0 #d7d7d7;
+  border-radius: 10%;
+}
+
+.dot1,
+.dot2 {
+  display: block;
+  align-self: center;
+  justify-self: center;
+  width: 2.25em;
+  height: 2.25em;
+  border-radius: 50%;
+  background-color: #333;
+  box-shadow: inset 0 3px #111, inset 0 -3px #555;
+}
+
+.dot1:nth-child(2),
+.dot2:nth-child(2) {
+  grid-area: b;
+}
+.dot1:nth-child(3),
+.dot2:nth-child(3) {
+  grid-area: c;
+}
+.dot1:nth-child(4),
+.dot2:nth-child(4) {
+  grid-area: d;
+}
+.dot1:nth-child(5),
+.dot2:nth-child(5) {
+  grid-area: e;
+}
+.dot1:nth-child(6),
+.dot2:nth-child(6) {
+  grid-area: f;
+}
+.dot1:nth-child(odd):last-child,
+.dot2:nth-child(odd):last-child {
+  grid-area: g;
+}
+
+.place {
+  font-size: 1.5rem;
+  color: white;
+  border-radius: 1em;
+  text-shadow: 3px 5px 2px black;
+  text-decoration: none;
+  transition-property: font-size;
+  transition-duration: 0.6s;
+  transition-delay: 0.125s;
+}
+
+.place:hover {
+  text-decoration: none;
+  font-size: 2rem;
+  transition-property: font-size;
+  transition-duration: 0.6s;
+  transition-delay: 0.125s;
+}
+
+.lose {
+  background-color: var(--color-red);
+  box-shadow: inset 0 0.5em #e98383, inset 0 -0.5em #7c4141,
+    inset 0.5em 0 #b27777, inset -0.5em 0 #a06363;
+}
+
+.draw {
+  background-color: var(--color-blue);
+  box-shadow: inset 0 0.5em #47c0e2, inset 0 -0.5em #308198,
+    inset 0.5em 0 #4cb0cc, inset -0.5em 0 #2d97b5;
+}
+
+.win {
+  background-color: #77b55a;
+  box-shadow: inset 0 0.5em #8fc974, inset 0 -0.5em #55833f,
+    inset 0.5em 0 #75a95d, inset -0.5em 0 #6aa54f;
+}
+
+footer {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  padding-bottom: 1em;
+}
+svg {
+  margin: auto;
+}
+footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition-property: font-size;
+  transition-duration: 0.6s;
+  transition-delay: 0.125s;
+}
+
+footer a:hover {
+  color: var(--color-yellow);
+  font-size: 1.5rem;
+  transition-property: font-size;
+  transition-duration: 0.6s;
+  transition-delay: 0.125s;
+}
+
+@media (max-width: 500px) {
+  main {
+    margin-top: 3em;
+  }
+  h1 {
+    margin: auto;
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+  .btn {
+    letter-spacing: 0.125em;
+    font-size: 1.5rem;
+	margin-top: 1.5em;
+  }
+  .dice-group {
+    background-color: initial;
+  }
+  .dice__player {
+    font-size: 1.25rem;
+  }
+  .dice__face1,
+  .dice__face2 {
+    margin: 16px;
+    padding: 10px;
+    width: 8em;
+    height: 8em;
+  }
+  .dot1,
+  .dot2 {
+    width: 1.5em;
+    height: 1.5em;
+  }
+  .place {
+    margin: auto;
+    font-size: 0.75rem;
+    width: 80%;
+  }
+  .place:hover {
+    font-size: 1rem;
+  }
+  footer a {
+    font-size: 0.75rem;
+  }
+
+  footer a:hover {
+    font-size: 1rem;
+  }
+}

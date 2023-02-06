@@ -3,8 +3,6 @@ const getDice2 = document.querySelector(".dice__face2");
 const outHolder1 = document.querySelector(".outcome1");
 const outHolder2 = document.querySelector(".outcome2");
 
-const diceFace = ["one", "two", "three", "four", "five", "six"];
-
 function result() {
   player1();
   player2();
@@ -35,10 +33,7 @@ function updateOutcome(result1, result2, class1, class2) {
 }
 
 function player1() {
-  randNum1 = Math.min(
-    Math.ceil(Math.random() * diceFace.length) + 1,
-    diceFace.length
-  );
+  randNum1 = Math.floor(Math.random() * 6 + 1);
   for (let i = 1; i <= randNum1; i++) {
     const span = document.createElement("span");
     getDice1.appendChild(span).classList.add("dot1");
@@ -46,10 +41,7 @@ function player1() {
 }
 
 function player2() {
-  randNum2 = Math.min(
-    Math.ceil(Math.random() * diceFace.length) + 1,
-    diceFace.length
-  );
+  randNum2 = Math.floor(Math.random() * 6 + 1);
   for (let i = 1; i <= randNum2; i++) {
     const span = document.createElement("span");
     getDice2.appendChild(span).classList.add("dot2");

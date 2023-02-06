@@ -23,6 +23,7 @@ function winLose() {
   }
 }
 
+
 function updateOutcome(result1, result2, class1, class2) {
   outHolder1.innerHTML = result1;
   outHolder2.innerHTML = result2;

@@ -2,6 +2,7 @@ const getDice1 = document.querySelector(".dice__face1");
 const getDice2 = document.querySelector(".dice__face2");
 const outHolder1 = document.querySelector(".outcome1");
 const outHolder2 = document.querySelector(".outcome2");
+
 const diceFace = ["one", "two", "three", "four", "five", "six"];
 
 function result() {
@@ -18,9 +19,9 @@ function winLose() {
   if (randNum1 > randNum2) {
     updateOutcome("Winner!", "Loser!", "win", "lose");
   } else if (randNum2 > randNum1) {
-    updateOutcome("Winner!", "Loser!", "win", "lose");
-  } else {
-    updateOutcome("Winner!", "Loser!", "win", "lose");
+    updateOutcome("Loser!", "Winner!", "lose", "win");
+  } else if (randNum1 == randNum2) {
+    updateOutcome("Draw!", "Draw!", "draw", "draw");
   }
 }
 

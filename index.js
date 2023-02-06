@@ -2,7 +2,6 @@ const getDice1 = document.querySelector(".dice__face1");
 const getDice2 = document.querySelector(".dice__face2");
 const outHolder1 = document.querySelector(".outcome1");
 const outHolder2 = document.querySelector(".outcome2");
-
 const diceFace = ["one", "two", "three", "four", "five", "six"];
 
 function result() {
@@ -17,27 +16,21 @@ function winLose() {
   randNum1;
   randNum2;
   if (randNum1 > randNum2) {
-    outHolder1.innerHTML = "Winner!";
-    outHolder2.innerHTML = "Loser!";
-    outHolder1.classList.add("win");
-    outHolder2.classList.add("lose");
-    getDice1.classList.add("win");
-    getDice2.classList.add("lose");
+    updateOutcome("Winner!", "Loser!", "win", "lose");
   } else if (randNum2 > randNum1) {
-    outHolder2.innerHTML = "Winner!";
-    outHolder1.innerHTML = "Loser!";
-    outHolder1.classList.add("lose");
-    outHolder2.classList.add("win");
-    getDice1.classList.add("lose");
-    getDice2.classList.add("win");
+    updateOutcome("Winner!", "Loser!", "win", "lose");
   } else {
-    outHolder2.innerHTML = "Draw!";
-    outHolder1.innerHTML = "Draw!";
-    outHolder1.classList.add("draw");
-    outHolder2.classList.add("draw");
-    getDice1.classList.add("draw");
-    getDice2.classList.add("draw");
+    updateOutcome("Winner!", "Loser!", "win", "lose");
   }
+}
+
+function updateOutcome(result1, result2, class1, class2) {
+  outHolder1.innerHTML = result1;
+  outHolder2.innerHTML = result2;
+  outHolder1.classList.add(class1);
+  outHolder2.classList.add(class2);
+  getDice1.classList.add(class1);
+  getDice2.classList.add(class2);
 }
 
 function player1() {
